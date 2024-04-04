@@ -123,3 +123,86 @@ const jobs = [
   },
 ]
 
+// creating the initial table structure with the starting jobs
+window.onload = function () {
+  createTable(jobs)
+}
+
+// function to create a table from a jobs Array (so i can reuse it)
+function createTable(jobsArray){
+  // finding the table body in the html page
+  let table = this.document.getElementsByTagName("tbody")[0]
+  let tableFooter = this.document.getElementsByTagName("tfoot")[0]
+  // for each element in the job array i create a table row, with 2 table data, one for the location, one for the job
+  for (let j of jobsArray){
+    let row = document.createElement("tr")
+    let loc = document.createElement("td")
+    let job = document.createElement("td")
+    loc.innerHTML = j.location
+    job.innerHTML = j.title
+    // i append the 2 data to row, and then the row to the table
+    row.appendChild(loc)
+    row.appendChild(job)
+    // i use a class name to easily find later the rows i have to delete
+    row.className = 'jobRow'
+    table.appendChild(row)
+  }
+  tableFooter.innerText = `# of jobs found: ${document.querySelectorAll(".jobRow").length}`
+}
+
+// function to delete all the data in the table
+function clearTable(){
+  let rows = document.querySelectorAll(".jobRow")
+  for (let r of rows){
+    r.remove()
+  }
+}
+
+// function to search for specific job and location
+function search(location, job){
+  // using toLowerCase to get a case insensitive search
+  l = location.toLowerCase()
+  j = job.toLowerCase()
+  // resonse object
+  let respObject = {}
+  // array to store selected jobs
+  let resultsArray = []
+  // cycling jobs and pushing the one that are ok with the search parameters
+  for (let jobDesc of jobs){
+    if (jobDesc.location.toLowerCase().search(l) >= 0 && jobDesc.title.toLowerCase().search(j) >= 0){
+      resultsArray.push(jobDesc)
+    }
+  }
+  // composing the object
+  respObject.result = resultsArray
+  respObject.count = resultsArray.length
+  
+  return respObject
+}
+
+// function to reset form input fields
+function resetForm(){
+  document.getElementById("location").value = null
+  document.getElementById("jobDescription").value = null
+}
+
+// function called by the button find me a job
+function findMyJob(){
+  // getting the values in the input fields
+  loc = document.getElementById("location").value
+  job = document.getElementById("jobDescription").value
+
+  // calling the function to find the right jobs
+  obj = search(loc, job)
+  // clearing the table 
+  clearTable()
+  // creating the table with the results of the search
+  createTable(obj.result)
+}
+
+// function called by the reset table button
+function resetJobs(){
+  clearTable()
+  createTable(jobs)
+  resetForm()
+}

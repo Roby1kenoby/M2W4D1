@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job-Finder</title>
+    <script src="scaricabile.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="mainWrapper">
+        <div id="searchWrapper">
+            <h1>Job-Finder</h1>
+            <nav id="searchMenu">
+                <form action="">
+                    <label for="Location">Location</label>
+                    <input type="text" name="location" id="location">
+                    <label for="JobDescription">Job Description</label>
+                    <input type="text" name="jobDescription" id="jobDescription">
+                    <button type="button" onclick="findMyJob()">Find me a Job!</button>
+                    <button type="button" onclick="resetJobs()">Reset Table</button>
+                </form>
+            </nav>
+        </div>
+        <div id="contentWrapper">
+            <main>
+                <table>
+                    <colgroup>
+                        <col class="thirty">
+                        <col class="seventy">
+                    </colgroup>
+                    <thead>
+                        <th>Location</th>
+                        <th>Job Description</th>
+                    </thead>
+                    <tbody>
+    
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
+                    
+    
+                </table>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
