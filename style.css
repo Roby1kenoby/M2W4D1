@@ -76,6 +76,9 @@ td{
     min-width: 10em;
 }
 
+tfoot p{
+    padding: 0.5em;
+}
 .thirty{
     width: 30%;
 }

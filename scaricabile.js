@@ -147,7 +147,7 @@ function createTable(jobsArray){
     row.className = 'jobRow'
     table.appendChild(row)
   }
-  tableFooter.innerText = `# of jobs found: ${document.querySelectorAll(".jobRow").length}`
+  tableFooter.innerHTML = `<p><b># of jobs found: ${document.querySelectorAll(".jobRow").length}</b></p>`
 }
 
 // function to delete all the data in the table
