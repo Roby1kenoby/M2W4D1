@@ -29,11 +29,18 @@
     font-style: normal;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
 #mainWrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 55%;
 }
 
 #searchWrapper{
@@ -50,13 +57,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1em;
+    padding: 0em 1em 0em;
     background-color: rgba(127, 255, 212, 0.619);
 }
 
 table{
-    /* table-layout: fixed; */
+    table-layout: fixed;
     width: 100%;
+}
+
+th{
+    padding: 1em;
 }
 
 td{
