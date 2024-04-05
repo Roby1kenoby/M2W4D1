@@ -52,6 +52,16 @@ body{
     background-color: rgba(255, 192, 203, 0.562);
 }
 
+button{
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin-left: 0.5em;
+}
+
+button:hover{
+    background-color: rgba(132, 128, 128, 0.59);
+}
+
 #contentWrapper{
     width: 100%;
     display: flex;
